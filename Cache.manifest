@@ -5,13 +5,13 @@ cache.html
 Cache.manifest
 wexploit.js
 exploit.js
+frontend.js
 goldhen.bin
 index.html
 int64.js
 int64b.js
 kexploit.js
 malloc.js
-mdumper.bin.bz2
 netcat.js
 payload.js
 relocator.js
@@ -19,4 +19,3 @@ rop.js
 ropb2.js
 syscalls.js
 syscalls2.js
-web.html
