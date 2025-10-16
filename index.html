@@ -280,6 +280,12 @@ setTimeout(white, 3000);
 
 function allset() {
 window.progress.innerHTML= LoadedMSG
+all.style.display = "block";
+setTimeout(close_browser, 100);
+}
+
+function close_browser() {
+    window.close();
 }
 
 function runScript(what)
