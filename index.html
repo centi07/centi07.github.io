@@ -265,37 +265,17 @@ document.getElementById("progress").style.color = "green";
 }
 
 function jbdone() {
-    document.getElementById("input").remove();
-    document.getElementById("progress").style.color = "green";
-    window.progress.innerHTML="Jailbreak Done";
-    localStorage.setItem('fanthreshold', tempC.value);
-    for(var i=50; i<=80; i=i+5){
-        var select = document.getElementById("tempC");
-        var option = document.createElement("OPTION");
-        select.options.add(option);
-        option.text = i;
-        option.value = i;
-    }
-    tempC.value=60;
-    all.style.display = "block";
-    setTimeout(white, 500);
-    setTimeout(green, 800);
-    setTimeout(white, 1100);
-    setTimeout(green, 1500);
-    setTimeout(white, 2000);
-    setTimeout(green, 2500);
-    setTimeout(white, 3000);
-    setTimeout(function() {
-        try {
-            if (typeof goldhen212 === "function") {
-                goldhen212();
-            } else {
-                console.warn("goldhen212() nie jest dostępne.");
-            }
-        } catch (e) {
-            console.error("Cant autostart goldenhen:", e);
-        }
-    }, 800); // 800 ms — można zmienić na większe jeśli trzeba więcej czasu
+document.getElementById("input").remove();
+document.getElementById("progress").style.color = "green";
+window.progress.innerHTML="Jailbreak Done";
+setTimeout(goldhen212, 3000);
+setTimeout(white, 500);
+setTimeout(green, 800);
+setTimeout(white, 1100);
+setTimeout(green, 1500);
+setTimeout(white, 2000);
+setTimeout(green, 2500);
+setTimeout(white, 3000);
 }
 
 function allset() {
@@ -406,7 +386,6 @@ Tools.style.display = "block";
 <h1 style='text-shadow: 4px 4px 4px black;font-size:30px;text-align:center;text-shadow: 4px 4px 4px black;color:yellow;margin-top:1%;'>Karo Host Auto Exploit Compressed + New Webkit Version 9.00 fw</h1>
 <h1 id=progress style='font-size:25px;text-align:center;text-shadow: 4px 4px 4px black;color:white;'>Jailbreaking... Wait</h1>
 <div id=all style="text-align:center;display:none">
-<button id="button-Payload" onMouseOver="progress.innerHTML='GoldHen'" onmouseout="progress.innerHTML='Status'" type="button" onclick="goldhen212()" style='font-size:20px;text-align:center;text-shadow: 4px 4px 4px black;color:#CEC52A' ></button>
 <br><br><br>
 <script>
 var bzip2 = {};
