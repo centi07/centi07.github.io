@@ -1,178 +1,43 @@
-<!DOCTYPE html>
-<html lang="pl" manifest="Cache.manifest">
-<head>
-    <meta charset="UTF-8">
-    <title>Karo Host Auto Exploit</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Courier New', monospace;
-            font-size: 20px;
-            font-weight: lighter;
-            text-align: center;
-            color: #00ff00;
-            background: linear-gradient(135deg, #0A0A0A 0%, #1A1920 100%);
-            background-size: cover;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            width: 90%;
-            max-width: 900px;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff00;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 8px rgba(0, 255, 0, 0.3);
-            backdrop-filter: blur(8px);
-        }
-        h2 {
-            font-size: 40px;
-            color: #00ff00;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-            margin: 10px 0;
-            letter-spacing: 2px;
-        }
-        #progress {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
-            margin: 20px 0;
-            letter-spacing: 1px;
-        }
-        .error {
-            color: #ff0000;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-        }
-        .progress-bar {
-            width: 60%;
-            height: 25px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #00ff00;
-            border-radius: 12px;
-            margin: 20px auto;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        .progress {
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, #00ff00, #00cc00);
-            box-shadow: 0 0 10px #00ff00;
-            transition: width 1s ease-in-out;
-        }
-        button {
-            background: rgba(0, 0, 0, 0.7);
-            color: #00ff00;
-            border: 2px solid #00ff00;
-            border-radius: 12px;
-            padding: 15px 40px;
-            font-size: 22px;
-            font-family: 'Courier New', monospace;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-            margin: 10px;
-            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
-        }
-        button:hover {
-            background: #00ff00;
-            color: #000000;
-            box-shadow: 0 0 20px #00ff00;
-            transform: scale(1.05);
-        }
-        input {
-            background: rgba(0, 0, 0, 0.7);
-            color: #00ff00;
-            border: 2px solid #00ff00;
-            border-radius: 1.5em;
-            padding: 0.8em;
-            font-family: 'Courier New', monospace;
-            font-size: 20px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-            backdrop-filter: blur(8px);
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-        input:hover {
-            box-shadow: 0 0 20px #00ff00;
-            transform: scale(1.05);
-        }
-        table {
-            margin: 20px auto;
-            opacity: 0;
-        }
-        th, td {
-            padding: 10px;
-            color: #00ff00;
-        }
-    </style>
-</head>
+<html>
 <body>
-    <div class="container">
-        <h2>Karo Host Auto Exploit</h2>
-        <h2 id="progress">Loading...</h2>
-        <div class="progress-bar">
-            <div class="progress" id="progressBar"></div>
-        </div>
-        <!-- preload necessary fonts before exploit -->
-        <div style="opacity: 0">
-            <p><i>Italic text</i></p>
-            <table>
-                <tr>
-                    <th>H1</th>
-                    <th>H2</th>
-                    <th>H3</th>
-                </tr>
-                <tr>
-                    <td>text</td>
-                    <td><input value="text"/></td>
-                    <td><button>text</button></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<h2>Loading...</h2>
+<!-- preload necessary fonts before exploit -->
+<div style="opacity: 0">
+<p><i>Italic text</i></p>
+<table>
+<tr>
+<th>H1</th>
+<th>H2</th>
+<th>H3</th>
+</tr>
+<tr>
+<td>text</td>
+<td><input value="text"/></td>
+<td><button>text</button></td>
+</tr>
+</table>
+</div>
+<script>
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest(path);
+    xhr.open("GET", path, false);
+    xhr.send('');
+    return xhr.responseText;
+}
 
-    <script>
-        // Twoje oryginalne funkcje (nietknięte)
-        function loadScript(path) {
-            var xhr = new XMLHttpRequest(path);
-            xhr.open("GET", path, false);
-            xhr.send('');
-            return xhr.responseText;
-        }
-
-        setTimeout(function() {
-            eval.call(window, loadScript('netcat.js') +
-                loadScript('wexploit.js') +
-                loadScript('malloc.js') +
-                loadScript('ropb2.js') +
-                loadScript('syscalls.js') +
-                loadScript('syscalls2.js') +
-                loadScript('payload.js') +
-                loadScript('relocator.js') +
-                loadScript('frontend.js'));
-            document.getElementById('q').innerHTML = 'Some other text';
-        }, 50);
-
-        // Symulacja postępu dla UI
-        window.onload = () => {
-            const progressBar = document.getElementById('progressBar');
-            const progressText = document.getElementById('progress');
-            progressText.textContent = 'Loading Scripts...';
-            progressBar.style.width = '30%';
-            setTimeout(() => {
-                progressText.textContent = 'Executing Payload...';
-                progressBar.style.width = '60%';
-            }, 1000);
-            setTimeout(() => {
-                progressText.textContent = 'Ready!';
-                progressBar.style.width = '100%';
-            }, 2000);
-        };
-    </script>
+setTimeout(function(){
+eval.call(window, loadScript('netcat.js')
++loadScript('wexploit.js')
++loadScript('malloc.js')
++loadScript('ropb2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('payload.js')
++loadScript('relocator.js')
++loadScript('frontend.js'));
+document.getElementById('q').innerHTML = 'Some other text';
+}, 50);
+</script>
 </body>
 </html>
