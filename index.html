@@ -92,19 +92,22 @@
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
         #psip {
-            text-align: center;
-            margin: 20px auto;
-            width: 25%;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 1.5em;
-            border: none;
-            padding: 1em;
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            font-size: 20px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-            backdrop-filter: blur(8px);
-            transition: box-shadow 0.3s, transform 0.3s;
+        position: absolute;
+        left: -9999px; /* Przesuwa textbox poza widoczny obszar strony */
+        top: -9999px;
+        width: 25%;
+        height: 0;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 1.5em;
+        border: none;
+        padding: 1em;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 20px;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        backdrop-filter: blur(8px);
+        transition: box-shadow 0.3s, transform 0.3s;
+        overflow: hidden; /* Zapewnia, że nie będzie widoczny */
         }
         #psip:hover {
             box-shadow: 0 0 20px #00ff00;
